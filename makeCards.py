@@ -2324,13 +2324,28 @@ if __name__ == "__main__":
   jet2PtCuts = " && jetLead_pt > 40. && jetSub_pt > 30. && ptMiss < 40."
   jet01PtCuts = " && !(jetLead_pt > 40. && jetSub_pt > 30. && ptMiss < 40.)"
 
-###  #analyses += [["Jets01PassPtG10BB",  "dimuonPt>10." +jet01PtCuts]]
-###  #analyses += [["Jets01FailPtG10BO",  "dimuonPt>10." +jet01PtCuts]]
 #  analyses += [["Jets01PassPtG10"+x,  "dimuonPt>10." +jet01PtCuts] for x in categoriesAll]
 #  analyses += [["Jets01FailPtG10"+x,"!(dimuonPt>10.)"+jet01PtCuts] for x in categoriesAll]
-  analyses += [["Jet2CutsVBFPass","deltaEtaJets>3.5 && dijetMass>650."+jet2PtCuts]]
-  analyses += [["Jet2CutsGFPass","!(deltaEtaJets>3.5 && dijetMass>650.) && (dijetMass>250. && dimuonPt>50.)"+jet2PtCuts]]
-  analyses += [["Jet2CutsFailVBFGF","!(deltaEtaJets>3.5 && dijetMass>650.) && !(dijetMass>250. && dimuonPt>50.)"+jet2PtCuts]]
+  
+  #analyses += [["FirstTry","dimuonPt>110. && dijetMass>60. && dijetMass<110"+jet2PtCuts]]
+  #analyses += [["FirstTryDimuonPt120","dimuonPt>120. && dijetMass>60. && dijetMass<110"+jet2PtCuts]]
+  #analyses += [["FirstTryDimuonPt110","dimuonPt>110. && dijetMass>60. && dijetMass<110"+jet2PtCuts]]
+
+  analyses += [["Jet2CutsVH","dijetMass>60. && dijetMass<110. && dimuonPt>110. && jetLead_eta<2.7 && jetSub_eta<2.7"+jet2PtCuts]]
+  #analyses += [["Jet2CutsFailVBFGF","!(deltaEtaJets>3.5 && dijetMass>650.) && !(dijetMass>250. && dimuonPt>50.)&& !(dimuonPt>110. && dijetMass>60. && dijetMass<110)"+jet2PtCuts]]
+  #analyses += [["Jet2CutsVBFPass","deltaEtaJets>3.5 && dijetMass>650."+jet2PtCuts]]
+  #analyses += [["Jet2CutsGFPass","!(deltaEtaJets>3.5 && dijetMass>650.) && (dijetMass>250. && dimuonPt>50.)"+jet2PtCuts]]
+  #analyses += [["Jets01PassPtG10"+x,  "dimuonPt>10." +jet01PtCuts] for x in categoriesAll]
+  #analyses += [["Jets01FailPtG10"+x,"!(dimuonPt>10.)"+jet01PtCuts] for x in categoriesAll]
+
+  # Old Categories
+  # You must name a new category "Jet2CutsVH"
+  #analyses += [["Jet2CutsVBFPass","deltaEtaJets>3.5 && dijetMass>650."+jet2PtCuts]]
+  #analyses += [["Jet2CutsGFPass","!(deltaEtaJets>3.5 && dijetMass>650.) && (dijetMass>250. && dimuonPt>50.)"+jet2PtCuts]]
+  #analyses += [["Jet2CutsFailVBFGF","!(deltaEtaJets>3.5 && dijetMass>650.) && !(dijetMass>250. && dimuonPt>50.)"+jet2PtCuts]]
+  #analyses += [["Jets01PassPtG10"+x,  "dimuonPt>10." +jet01PtCuts] for x in categoriesAll]
+  #analyses += [["Jets01FailPtG10"+x,"!(dimuonPt>10.)"+jet01PtCuts] for x in categoriesAll]
+
 #
 #
 #  # Jet 0+1 Pass All Cats
@@ -2441,7 +2456,8 @@ if __name__ == "__main__":
   ################################################################
 
   histPostFix="/mDiMu"
-  signalNames=["ggHmumu125","vbfHmumu125","whHmumu125","zhHmumu125"]
+  signalNames=["whHmumu125","zhHmumu125"]
+  #signalNames=["ggHmumu125","vbfHmumu125","whHmumu125","zhHmumu125"]
   #signalNames=["ggHmumu125","vbfHmumu125"]
   #signalNames=["whHmumu125"]
   #backgroundNames= ["DYJetsToLL","ttbar"]
